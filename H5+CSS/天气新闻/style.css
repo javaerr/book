@@ -1,0 +1,27 @@
+a {
+    text-decoration: none;
+}
+.align1 {
+    text-align: right;
+}
+.align2 {
+    text-align: center;
+}
+p {
+    text-indent: 2em;
+    display: inline;
+}
+body {
+    font-size: 16px;
+    line-height: 30px;
+    font-family: "microsoft yahei";
+}
+.gray {
+    color: #888888;
+}
+ .align3 {
+    text-align: right;
+}
+div p {
+    text-align: right;
+}

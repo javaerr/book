@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title> 主页 </title>
+	<meta charset="uft-8">
+	<link rel="dns=prefetch" href="www.qq.com">
+	<!--无需dns等待时间-->
+	<meta name="viewport" content="width=width-device,initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<base href="www.qq.com" target="_blank">
+	<meta name="keyworks" content="编程,代码,序">
+	<meta name="descriptiom" content="好用的编程软件">
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<!--外部样式表-->
+	<style type="text/css">
+		P {
+			font-family: "agency fb";
+			font-size: 12px;
+			color: red;
+		}
+
+		/* body {
+			background-color: ;
+		} */
+
+		类型
+	</style>
+	<!--注释 -->
+</head>
+
+<body>
+	<header>头部</header>
+	<div>
+		<ul>
+			<li>百度</li>
+			<li>QQ</li>
+			<!--无序标签-->
+			<li>新浪</li>
+		</ul>
+	</div>
+	<ol>
+		<li>阿里巴巴</li>
+		<li>腾讯</li>
+		<!--有序标签-->
+		<li>字节跳动</li>
+	</ol>
+	<p style="text-align:center;">段落</p>
+	<h1 style="text-align:center;">居中对齐的标题</h1>
+	<br />
+	<!--回车换行-->
+	<hr />
+	<!--分隔横线-->
+	<aside>侧边栏区域</aside>
+	<div>逻辑部分，独立板块</div>
+	<section>区域，专栏</section>
+	<span>定义文字样式</span>
+	<h1>文章标题</h1>
+	<img src="位置地址" alt="下载失败的替换文本" title="提示文本">
+	<hr />
+	<a href="https://www.baidu.com/" style="txet-decoration:none;">百度</a>
+	<br />
+	<a href="https://www.qq.com/" target=_self title="点击进入QQ">QQ</a>
+	<!--_self当前窗口打开 -->
+	<br />
+	<a href="https://www.Sina.com/" style="txet-decoration:none;" target=_blank title="点击进入新浪">新浪</a>
+	<!--_blank新窗口打开-->
+	<p>这是一个图片链接：
+		<a href="https://www.qq.com/" target=_self>
+			<img border="1" src="G:\作业\笔记\img\1.jpg" alt="作业图片" title="写作业的" width="32" higth="32">
+		</a>
+	</p>
+	<img src="G:\作业\笔记\img\1.jpg" alt="热点链接" width="64" higth="64" usemap="#plant">
+	<map name="plant" id="plant">
+		<area shape="rect" coords="" alt="图像" href="css/">
+		<area shape="rect" coords="" alt="图" href="img/">
+		<area shape="circle" coords="" alt="1" href="">
+		<area shape="circle" coords="" alt="2" href="">
+	</map>
+	<table border="2">
+		<caption>前端三剑客</caption>
+		<tr>
+			<th>知识点</th>
+			<th>重要程度</th>
+			<th>难度</th>
+			<th>学习周期</th>
+		</tr>
+		<tr>
+			<td>html</td>
+			<td>5星</td>
+			<td>3星</td>
+			<td>7天</td>
+		</tr>
+		<tr>
+			<td>css</td>
+			<td>5星</td>
+			<td>4星</td>
+			<td>10天</td>
+		</tr>
+		<tr>
+			<td>js</td>
+			<td>5星</td>
+			<td>5星</td>
+			<td>20天</td>
+		</tr>
+	</table>
+	<footer>底部</footer>
+	<table border="1">
+		<caption>
+			<h3>成绩表</h3>
+		</caption>
+		<hr />
+		<thead>
+			<th>科目</th>
+			<th>成绩</th>
+		</thead>
+		<tbody>
+			<td>语文</td>
+			<td>99</td>
+		</tbody>
+		<tbody>
+			<td>数学</td>
+			<td>88</td>
+		</tbody>
+		<tfoot>
+			<td>英语</td>
+			<td>77</td>
+		</tfoot>
+	</table>
+	<hr />
+	<!-- method:传送方式（post/get）,action:服务器文件（浏览者输入的数据被传送到的地方）-->
+	<form method="post" action="服务器文件">
+	</form>
+	<form name="例子">
+		<label for="name">用户名:</label>
+		<input type="text" id="name" placeholder="请输入用户名" />
+		<br />
+		<label for="pass">密码:</label>
+		<input type="text" id="pass" placeholder="请输入密码" />
+		<input type="submit" value="提交" name="submitBtn">
+		<br />
+		<label for="number">数字:</label>
+		<input type="number" id="number" placeholder="请输入数字" />
+		<br />
+		<label for="address">网址:</label>
+		<input type="url" id="address" placeholder="请输入网址" />
+		<br />
+		<label for="ema">邮箱:</label>
+		<input type="email" id="ema" placeholder="请输入邮箱" />
+		<br />
+		<label for="uname">姓名:</label>
+		<input type="txet" id="uname" value="" placeholder="请输入姓名" />
+		<input type="reset" value="重置" name="nameBtn">
+		<br /> <br /> <br />
+		<hr />
+
+		<br /> <br />
+		你喜欢写代码吗？
+		<!--radio 单选；checked 复选-->
+		<br />
+		<input type="radio" name="Radio" value="喜欢">喜欢
+		<input type="radio" name="Radio" value="不喜欢">不喜欢
+		<input type="radio" name="Radio" value="无所谓">无所谓
+		<input type="radio" name="Radio" value="预先选中" checked="checked">预先选中
+		<br /> <br>
+		你对什么感兴趣？
+		<br />
+		<input type="checkbox" name="checkbox1" value="编程">编程
+		<input type="checkbox" name="checkbox2" value="游戏">游戏
+		<input type="checkbox" name="checkbox3" value="运动">运动
+		<input type="checkbox" name="checkbox4" value="看书" checked="checked">看书
+		<br />
+		爱好：
+		<select>
+			<!--下拉菜单-->
+			<option value="编程">编程</option>
+			<option value="游戏">游戏</option>
+			<option value="运动">运动</option>
+			<option value="看书" selected="selected">看书</option>
+		</select>
+	</form>
+</body>
+
+</html>

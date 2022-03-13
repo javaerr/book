@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>青春不常在，抓紧谈恋爱</h3>
+    <form action="sava.php" method="post">
+        头像：
+        <input type="file">
+        <br /><br />
+        <label for="user">用户名：</label>
+        <input type="text" id="user" name="xm" placeholder="请输入用户名">
+        <br /><br />
+        <label for="pass">密码：</label>
+        <input type="password" id="pass" name="pwd" placeholder="请输入密码">
+        <br /><br />
+        <label for="ema">邮箱：</label>
+        <input type="email" id="ema" name="email" placeholder="请输入邮箱">
+        <br /><br />
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="username" value="" placeholder="请输入姓名">
+        <br /><br />
+        性别：
+        <input type="radio" name="sex" value="男" id="nan"><label for="nan">男</label>
+        <input type="radio" name="sex" value="女" id="nv"><label for="nv">女</label>
+        <br /><br />
+        生日：
+        <select>
+            <option value="">--请选择年--</option>
+            <option value="2000年" selected="selected">2000年</option>
+            <option value="2001年">2001年</option>
+            <option value="2002年">2002年</option>
+            <option value="2003年">2003年</option>
+        </select>
+        <select>
+            <option value="">--请选择月--</option>
+            <option value="1月">1月</option>
+            <option value="2月">2月</option>
+            <option value="3月">3月</option>
+            <option value="4月">4月</option>
+        </select>
+        <select>
+            <option value="">--请选择日--</option>
+            <option value="1日">1日</option>
+            <option value="2日">2日</option>
+            <option value="3日">3日</option>
+            <option value="4日">4日</option>
+        </select>、
+        <br /><br />
+        <label for="diqu">所在地区：</label>
+        <input type="text" name="quyu" value="" id="diqu">
+        <br /><br />
+        婚姻状况：
+        <input type="radio" name="hun" value="已婚">已婚
+        <input type="radio" name="hun" value="未婚">未婚
+        <input type="radio" name="hun" value="离婚">离婚
+        <br /><br />
+        学历：
+        <input type="radio" name="xue" value="本科" checked="checked">本科
+        <input type="radio" name="xue" value="大专">大专
+        <input type="radio" name="xue" value="高中">高中
+        <br /><br />
+        喜欢类型：
+        <input type="checkbox" name="like" value="清纯" checked="checked">清纯
+        <input type="checkbox" name="like" value="可爱">可爱
+        <input type="checkbox" name="like" value="妩媚">妩媚
+        <input type="checkbox" name="like" value="性感" checked="checked">性感
+        <input type="checkbox" name="like" value="成熟">成熟
+        <br /><br />
+        <label for="jieshao">自我介绍：</label>
+        <textarea id="jieshao" rows="5" cols="30" placeholder="请输入内容"></textarea>
+        <br /><br />
+        <input type="checkbox" name="true" value="同意">我同意注册条款和会员加入标准
+        <br /><br />
+        <input type="reset" value="重新设置">
+        <input type="submit" value="立即注册">
+        <br /><br />
+        <a href="#" title="登录">我是会员，立即登录</a>
+    </form>
+    <h2>我承诺</h2>
+    <ul>
+        <li>年满18岁，单身</li>
+        <li>抱着严谨的态度</li>
+        <li>真诚寻找另一半</li>
+    </ul>
+</body>
+</html>

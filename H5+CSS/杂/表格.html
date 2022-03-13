@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css表格</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid green;
+            border-collapse: collapse;
+            text-align: center;
+            width: 400px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        th {
+            background: rgb(22, 226, 15);
+            color: honeydew;
+        }
+
+        tr.color {
+
+            background-color: rgb(188, 219, 141);
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>这是一个表格</caption>
+        <tr>
+            <th>炸鸡</th>
+            <th>汉堡</th>
+            <th>鸡肉卷</th>
+            <th>烧烤</th>
+        </tr>
+        <tr>
+            <td>鸡头</td>
+            <td>鸡腿</td>
+            <td>鸡屁股</td>
+            <td>鸡爪</td>
+        </tr>
+        <tr class="color">
+            <td>伦敦</td>
+            <td>纽约</td>
+            <td>德克萨斯</td>
+            <td>涅瓦</td>
+        </tr>
+        <tr>
+            <td>伯明翰</td>
+            <td>爱尔兰</td>
+            <td>英格兰</td>
+            <td>苏格兰</td>
+        </tr>
+        <tr class="color">
+            <td>巴黎</td>
+            <td>马赛</td>
+            <td>诺曼底</td>
+            <td>阿尔萨斯</td>
+        </tr>
+    </table>
+</body>
+
+</html>

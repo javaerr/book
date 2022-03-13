@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .tb_promp {
+            position: relative;
+            width: 520PX;
+            height: 280px;
+            left: 50%;
+            margin-left: -260px;
+        }
+
+        a {
+            margin-top: -15px;
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            line-height: 30px;
+            background-color: rgba(0, 0, 0, .3);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+
+        }
+
+        .prev {
+            left: 0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .next {
+            right: 0;
+            border-top-left-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+
+        .promo_nav {
+            margin-left: -40px;
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            list-style: none;
+            background: rgba(255, 255, 255, .3);
+            border-radius: 8px;
+        }
+
+        .promo_nav li {
+            margin: 3px;
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border-radius: 50%;
+        }
+
+        #selected {
+            background-color: #ff5000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tb_promp">
+        <img src="..\H5+CSS\tb.jpg" alt="">
+        <a href="javascript:;" class="prev">&lt;</a>
+        <a href="javascript:;" class="next">&gt;</a>
+        <ul class="promo_nav">
+            <li id="selected"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
