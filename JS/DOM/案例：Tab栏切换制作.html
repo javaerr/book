@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab_list {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* justify-content: space-between; */
+            background-color: aqua;
+            list-style-type: none;
+        }
+
+        li {
+            padding: 5px 10px;
+            list-style-type: none;
+            text-align: center;
+            width: 80px;
+        }
+
+        .current {
+            background-color: red;
+            color: white;
+        }
+
+        .tab_con .item {
+            margin: 0 auto;
+            width: 500px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>售后保障</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <div class="item" style="display: block;">商品介绍模块内容</div>
+            <div class="item">规格与包装模块内容</div>
+            <div class="item">售后保障内容</div>
+            <div class="item">商品评价内容</div>
+            <div class="item">手机社区内容</div>
+        </div>
+    </div>
+    <script>
+        // 获取 5个 li
+        var list = document.querySelector('.tab_list').querySelectorAll('li');
+        var con = document.querySelector('.tab_con').querySelectorAll('.item');
+        // console.log(con);
+        // console.log(list);
+        for (var i = 0; i < list.length; i++) {
+            list[i].setAttribute('data-index', i);  // 给5个li 设置索引号
+            // (1) 颜色改变
+            list[i].onclick = function () { // 遍历list 5个li绑定点击事件
+                for (var i = 0; i < list.length; i++) {
+                    list[i].className = '';  // 干掉所有人 把5个li 类清除
+                }
+                this.className = 'current';  // 保留自己   点击后 当前li 的类名为current
+                // (2) 内容改变
+                var index = this.getAttribute('data-index');  // 获取索引号
+                for (var i = 0; i < con.length; i++) {
+                    con[i].style.display = 'none';  // 干掉所有人 都设置为display:none
+                }
+                con[index].style.display = 'block';  //  保留自己 当前索引号添加属性
+            }
+        }
+
+    </script>
+</body>
+
+</html>

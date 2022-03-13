@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo" index="1" class="nav"></div>
+    <script>
+        var div = document.getElementById('demo');
+        // 获取元素的属性
+        // (1) element.属性
+        console.log(div.id);
+        // (2) element.getAttribute('属性') get 获取    attribute 属性  程序员自己添加的属性称为自定义属性
+        console.log(div.getAttribute('id'));
+        console.log(div.getAttribute('index'));
+        // 2. 设置元素属性值
+        // (1) element.属性='值'
+        div.id = 'test';
+        div.className = 'navs';
+        // (2) element.setAttribute('属性','值')  主要针对自定义属性
+        div.setAttribute('id', 'demos');
+        div.setAttribute('index', '2')
+        div.setAttribute('class', 'navsss');  // class 特殊   不写className
+        // 3. 移除属性 removeAttribute(属性)
+        div.removeAttribute('class');
+        div.removeAttribute('index');
+        div.removeAttribute('id');
+
+        // H5新增获取自定义属性方法 只能获取以data- 开头的
+        div.setAttribute('data-list', '1');
+        div.setAttribute('data-list-name', '2');
+        console.log(div.getAttribute('data-list'));
+        console.log(div.dataset);  // dataset 获取一个属性集合
+        console.log(div.dataset.list);
+        console.log(div.dataset['list']);
+        // 如果自定义属性里有多个-链接 获取时采用驼峰命名法
+        console.log(div.dataset.listName);
+        console.log(div.dataset['listName']);
+
+    </script>
+</body>
+
+</html>

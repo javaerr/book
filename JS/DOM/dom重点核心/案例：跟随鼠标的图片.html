@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <img src="../a532e33470d046b3f044d5ea49fc5e9e.webp" alt=""> -->
+    <div></div>
+    <script>
+        let pic = document.querySelector('div');
+        document.addEventListener('mousemove', function (e) {
+            // mousemove 只要鼠标移动1px 就会触发这个事件
+            // 核心原理：每次鼠标移动，我们都会获得最新的鼠标坐标 把这个x和y坐标当成该元素的left和top 值就可以移动
+            let x = e.pageX;
+            let y = e.pageY;
+            // 千万别忘记加单位 px
+            pic.style.left = x - 50 + 'px';
+            pic.style.top = y - 50 + 'px';
+        })
+    </script>
+</body>
+
+</html>

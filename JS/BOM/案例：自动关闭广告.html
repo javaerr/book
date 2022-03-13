@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            position: relative;
+            width: 1263px;
+        }
+
+        .son {
+            position: absolute;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+        <img src="../bom/example.jpg" alt="">
+    </div>
+    <script>
+        let father = document.querySelector('.father');
+        let son = father.children[0];
+        let img = father.children[1];
+        son.addEventListener('click', function () {
+            father.style.display = 'none';
+        })
+        let timer = setTimeout(function () {
+            father.style.display = 'none';
+        }, 5000)
+        clearTimeout(timer);
+    </script>
+</body>
+
+</html>

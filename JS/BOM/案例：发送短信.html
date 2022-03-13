@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="" id="">
+    <button>发送</button>
+    <script>
+        // 1. 按钮点击后会被禁用 disabled=true
+        // 2. 同时按钮里的内容会发生变化 通过innerHTML修改
+        // 3.　秒数是由变化的　需要用到定时器
+        // 4.　定义一个变量　在定时器里递减
+        // 5.　如果变量为0　说明时间到了　停止定时器　取消按钮禁用　更改内容为发送
+        let input = document.querySelector('input');
+        let button = document.querySelector('button');
+        button.addEventListener('click', function () { // 绑定点击事件
+            this.disabled = true;
+            let time = 60; // 定义倒计时变量
+            let times = setInterval(function () { // 绑定定时器
+                if (time == 0) {
+                    clearInterval(times); // 停止定时器
+                    button.disabled = false; // 按钮禁用
+                    button.innerHTML = '发送';
+                } else {
+                    button.innerHTML = '等待' + time + '秒后重新发送'; // 通过变量time 让时间动态显示
+                    time--;
+                }
+            }, 1000)
+        })
+    </script>
+</body>
+
+</html>

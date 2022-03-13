@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        position: relative;
+        width: 300px;
+        line-height: 30px;
+        background-color: red;
+        margin: 0 auto;
+    }
+
+    input {
+        width: 270px;
+        line-height: 30px;
+        border: 0;
+    }
+
+    label,
+    img {
+        position: absolute;
+        right: 0;
+        width: 30px;
+        line-height: 30px;
+
+    }
+</style>
+
+<body>
+    <div>
+        <label for=""><img src="..\images\qq.jpg" alt=""></label>
+        <input type="password">
+    </div>
+    <script>
+        var img = document.querySelector('img');
+        var input = document.querySelector('input');
+        var flag = 0;
+        img.onclick = function () {
+            if (flag == 0) {
+                input.type = 'text';
+                img.src = '../images/weixin.png';
+                flag = 1;
+            } else {
+                input.type = 'password';
+                img.src = '../images/qq.jpg';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

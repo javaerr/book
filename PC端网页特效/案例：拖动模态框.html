@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #login_header {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #login_header a {
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+
+        span a {
+            text-decoration: none;
+            color: black;
+        }
+
+        #login {
+            margin: 200px auto;
+            position: relative;
+            display: none;
+            width: 500px;
+            height: 230px;
+            text-align: center;
+            background-color: white;
+        }
+
+        #login div {
+            margin: 0 auto;
+            line-height: 50px;
+            width: 80%;
+        }
+
+        .login_title {
+            font-size: 20px;
+        }
+
+        .login_title span {
+            position: absolute;
+            background-color: white;
+            width: 30px;
+            line-height: 30px;
+            border-radius: 50%;
+            right: -15px;
+            top: -15px;
+            font-size: 10px;
+            text-align: center;
+        }
+
+        .login_input {
+            text-align: right;
+        }
+
+        .login_btn input {
+            border: 1px solid #cacaca;
+            height: 35px;
+            width: 60%;
+            background-color: white;
+        }
+
+        input {
+            height: 27px;
+            width: 77%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="login_header"><a href="javascript:;" id="link">点我登录</a></div>
+    <div id="login">
+        <div class="login_title">会员登陆
+            <span><a href="javascript:;">关闭</a></span>
+        </div>
+        <div class="login_input">
+            <label>用户名：</label>
+            <input type="text" placeholder="请输入用户名">
+        </div>
+        <div class="login_input">
+            <label>登陆密码：</label>
+            <input type="password" placeholder="请输入登陆密码">
+        </div>
+        <div class="login_btn"><input type="submit" value="登录会员"></div>
+    </div>
+    <script>
+        let link = document.querySelector('#link');
+        let login = document.querySelector('#login');
+        let body = document.querySelector('body');
+        let span = document.querySelector('span');
+        let title = document.querySelector('.login_title');
+        // 点击弹出这个登录框链接
+        link.addEventListener('click', function () {
+            login.style.display = 'block';
+            body.style.backgroundColor = '#cacaca'
+        })
+        // 1. 再点击关闭这个登录框链接
+        span.addEventListener('click', function () {
+            login.style.display = 'none';
+            body.style.backgroundColor = '';
+        })
+        // 2. 求出鼠标按下时的位置到盒子边框的距离=e.pageX或Y - offsetLeft或Top
+        title.addEventListener('mousedown', function (e) {
+            let x = e.pageX - login.offsetLeft;
+            let y = e.pageY - login.offsetTop;
+            // 移动时 把鼠标点击位置的坐标减去盒子在盒子内的坐标  e.pageX或Y - x或y
+            document.addEventListener('mousemove', move)
+            function move(e) {
+                login.style.left = e.pageX - x - 510 + 'px';
+                login.style.top = e.pageY - y - 225 + 'px';
+            }
+            // 3. 鼠标弹起 移除移动事件
+            document.addEventListener('mouseup', function () {
+                document.removeEventListener('mousemove', move)
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>

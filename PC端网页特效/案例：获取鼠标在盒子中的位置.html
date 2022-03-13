@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        // 用鼠标在盒子内点击的位置减去盒子边缘到body的位置就是鼠标在盒子内的位置
+        // e.pageX-Element.offsetWidth      e.pageY-Element.offsetHeight
+        let div = document.querySelector('div');
+        div.addEventListener('mousemove', function (e) {
+            // console.log(e.pageX);
+            // console.log(e.pageY);
+            // console.log(div.offsetLeft);
+            // console.log(div.offsetTop);
+            let x = e.pageX - div.offsetLeft;
+            let y = e.pageY - div.offsetTop;
+            console.log('x坐标是' + x + 'px' + ' y坐标是' + y + 'px');
+        })
+    </script>
+</body>
+
+</html>

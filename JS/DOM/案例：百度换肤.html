@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img,
+        ul {
+            height: 50px;
+        }
+
+        ul {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        li {
+            float: left;
+            text-decoration: none;
+            list-style-type: none;
+        }
+
+        body {
+            background: url("../example.jpg") no-repeat center top;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="baidu">
+        <li><img src="../example.jpg" alt=""></li>
+        <li><img src="../images/qq.jpg" alt=""></li>
+        <li><img src="../example.jpg" alt=""></li>
+        <li><img src="../js-DOM/a532e33470d046b3f044d5ea49fc5e9e.webp" alt=""></li>
+    </ul>
+    <script>
+        // 1. 获取元素
+        var imgs = document.querySelector('.baidu').querySelectorAll('img');
+        let body = document.querySelector('body');
+        // 2. 循环注册事件
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].oncilck = function () {
+                // console.log(this.src);
+                // this.src 就是我们点击图片的路径   把路径给body就行了
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=0, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.数组（Array）：就是一组数据的集合，存储在单个变量的优雅方式
+        // 2.利用new 关键字创建数组
+        var arr = new Array();  //创建了一个空的数组
+        // 3.利用数组字面量创建数组 []
+        var arr = []; //创建了一个空的数组
+        var arr2 = [1, 2, '字符串', true];
+        // 4.数组里面的数据一定用逗号隔开
+        // 5.数组里面的数据，比如1，2   称为数组元素
+        // 6.获取数组元素   格式   数组名[索引号]
+        var arr1 = ['迪丽热巴', '古利札那', '佟丽娅呀'];
+        console.log(arr1[0]);
+        console.log(arr1[1]);
+        console.log(arr1[2]);
+        console.log(arr1[3]);  // 没有这个数组元素，所以输出结果undefined
+
+        var arr3 = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期天']
+        console.log(arr3[6]);
+
+        // 遍历数组：就是把数组里的元素从头到尾的访问一遍
+        var arr4 = ['香蕉', '西瓜', '苹果'];
+        for (i = 0; i < 3; i++) {
+            console.log(arr4[i]);
+        }
+
+        // 数组长度     数组名.length
+        // arr5.length   动态监测数组元素的个数
+        var arr5 = ['刘备', '关羽', '张飞', '马超', '黄忠', '诸葛亮', '姜维', '曹操']
+        for (i = 0; i < arr5.length; i++) {
+            console.log(arr5[i]);
+        }
+
+        // 数组求和及平均值
+        var sum = 0
+        average = 0
+        arr6 = [2, 6, 1, 7, 4];
+        for (i = 0; i < arr6.length; i++) {
+            sum += arr6[i];
+        }
+        average = sum / arr6.length;
+        console.log(sum, average);
+
+        // 求数组最大值
+        var max = arr7[0];
+        var arr7 = [2, 6, 1, 77, 52, 25, 7];
+        for (i = 0; i < arr7.length; i++) {
+            // max > arr7[i] ? max : max = arr7[i];
+            if (arr7[i] > max) {
+                max = arr7[i];
+            }
+        } console.log(max);
+
+        // 数组转换为字符串
+        var arr8 = ['red', 'green', 'yellow', 'blue'];
+        var str = '';
+        var sep = '|';   // 分割字符
+        for (var i = 0; i < arr8.length; i++) {
+            str += arr8[i] + sep;
+        }
+        console.log(str);
+
+
+        // 新增数组元素
+        // 1.修改length长度
+        var arr9 = ['red', 'green', 'yellow', 'blue'];
+        console.log(arr9.length);
+        arr9.length = 10;  //数组长度修改为10；里面有10个元素
+        console.log(arr9);
+        console.log(arr9[4]);  // undefind
+        console.log(arr9[5]);  // undefing
+
+        // 2.修改索引号，追加数组元素
+        var arr10 = ['red', 'green', 'yellow', 'blue'];
+        arr10[4] = 'pink'
+        console.log(arr10);
+        arr10[5] = 'hotpink'
+        console.log(arr10);
+        arr10[0] = '替换'   // 替换原来的数组元素
+        console.log(arr10);
+        arr10 = '有意思';
+        console.log(arr10);  // 不要直接给数组名赋值，否则里面的数组元素都没有了
+
+        //新建一个数组，里面存放1-10，10个整数
+        var arr11 = [];
+        for (var i = 0; i < 10; i++) {
+            arr11[i] = i + 1;
+        } console.log(arr11);
+
+        // 筛选数组
+        var arr12 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var arr13 = [];
+        // var j = 0;
+        for (i = 0; i < arr12.length; i++) {
+            if (arr12[i] >= 10) {
+                // arr13[j] = arr12[i];
+                // j++
+                arr13[arr13.length] = arr12[i];
+            }
+        }
+        console.log(arr13);
+
+        // 删除指定数组元素
+        var arr14 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var arr15 = [];
+        for (i = 0; i < arr14.length; i++) {
+            if (arr14[i] !== 0) {
+                arr15[arr15.length] = arr14[i];
+            }
+        } console.log(arr15);
+
+
+        // 翻转数组
+        var arr16 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var arr17 = [];
+        for (var i = arr16.length - 1; i >= 0; i--) {
+            arr17[arr17.length] = arr16[i];
+        } console.log(arr17);
+
+        // 冒泡排序：将数组按照从小到大的顺序排列
+        var arr18 = [5, 4, 6, 2, 9, 555, 65];
+        for (var i = 0; i < arr18.length - 1; i++) {   // 外循环管趟数
+            for (var j = 0; j < arr18.length - i - 1; j++) {   // 内循环管交换次数
+                if (arr18[j] > arr18[j + 1]) {  // 内部交换两个变量，前一个和后一个相比较
+                    var temp = arr18[j];
+                    arr18[j] = arr18[j + 1];
+                    arr18[j + 1] = temp;
+                }
+            }
+        } console.log(arr18);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        let button = document.querySelector('button');
+        button.addEventListener('click', function () {
+            // 1. 记录浏览历史 有后退功能
+            // location.assign('http://www.baidu.com');
+            // 2. 不记录浏览历史 没有后退功能
+            // location.replace('http://www.baidu.com');
+            // 3. 页面刷新 重新加载页面 如果参数为true 强制刷新CTRL+f5
+            // location.reload();
+            history.forward(); // 前进一步
+            // history.back(); // 后退一步
+            // history.go(1) // 前进一步
+            // history.go(-1) // 后退一步
+        })
+    </script>
+</body>
+
+</html>

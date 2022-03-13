@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button>
+    <img src='..\images\weibo.png' alt="" title="刘德华">
+    <div></div>
+    <script>
+        // 修改元素属性 src title
+        // 1. 获取元素
+        var ldh = document.getElementById('ldh');
+        var zxy = document.getElementById('zxy');
+        var img = document.querySelector('img');
+        // 2. 注册事件 处理程序
+        zxy.onclick = function () {
+            img.src = '..\images\weibo.png';
+            img.title = '张学友';
+        }
+        ldh.onclick = function () {
+            img.src = "..\images\weibo.png";
+            img.title = '刘德华';
+        }
+
+
+        // 分时问候案例
+        // 根据时间不同判断，所以需要用到日期内置对象
+        // 利用多分支语句来设置不同图片
+        // 根据时间修改图片，需要更改操作元素src属性
+        // 需要一个div元素，显示不同时间段问候语，修改元素内容即可
+        var div = document.querySelector('div');
+        var date = new Date();
+        var h = date.getHours();
+        console.log(h);
+        if (h < 12) {
+            div.innerHTML = '上午好';
+            img.src = '上午好.jpg';
+        } else if (h < 18) {
+            div.innerHTML = '下午好';
+            img.src = '中午好.jpg';
+        } else {
+            div.innerHTML = '晚上好';
+            img.src = '晚上好.jpg';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nav {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .n {
+            display: none;
+        }
+
+        .nav>li {
+            float: left;
+        }
+
+        .chagne {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#" id="demo">微博</a>
+            <ul class="n">
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" id="demo">微博</a>
+            <ul class="n">
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" id="demo">微博</a>
+            <ul class="n">
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#" id="demo">微博</a>
+            <ul class="n">
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+                <li><a href="#">私信</a></li>
+            </ul>
+        </li>
+
+    </ul>
+    <script>
+        var nav = document.querySelector('.nav');
+        var lis = nav.children;  // 获取所有li标签
+        // 绑定注册事件
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].onmouseover = function () {
+                // this.children[1].style.dispaly = 'block';
+                // console.log(this.children[1]);
+                this.children[1].className = 'change';  // 改样式 class
+            }
+            lis[i].onmouseout = function () {
+                // this.children[1].style.dispaly = 'none';
+                this.children[1].className = 'n';
+            }
+        }
+    </script>
+</body>
+
+</html>

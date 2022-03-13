@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        input {
+            line-height: 20px;
+            border: 1px solid #d9d9d9;
+            outline: none;
+        }
+
+        #bgi {
+            position: relative;
+            background-image: url("../js-DOM/a532e33470d046b3f044d5ea49fc5e9e.webp");
+            width: 100%;
+            height: 600px;
+            background-color: red;
+        }
+
+        img {
+            position: absolute;
+            right: 0;
+        }
+
+        #title {
+            width: 50px;
+            background-color: red;
+            text-align: center;
+        }
+
+        #block {
+            text-align: center;
+            width: 50px;
+            display: none;
+        }
+
+        .black {
+            width: 100%;
+            height: 1080px;
+            background-color: black;
+        }
+
+        .bai {
+            width: 100%;
+            height: 1080px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 第一个作业 世纪佳缘 用户名 显示隐藏-->
+    <!-- <input type="text" placeholder="邮箱/ID/手机号">
+    <script>
+        var input = document.querySelector('input');
+        input.onfocus = function () {
+            input.placeholder = '';
+            input.style.borderColor = 'pink';
+        }
+        input.onblur = function () {
+            input.placeholder = '邮箱/ID/手机号';
+            input.style.borderColor = '#d9d9d9';
+        } -->
+
+    <!-- 第二个作业 京东关闭广告-->
+    <!-- <div id="bgi">
+        <img src="../images/weibo.png" alt="" id="xiaode">
+    </div>
+    <script>
+        var div = document.getElementById('bgi');
+        var img = document.querySelector('img');
+        img.onclick = function () {
+            div.style.display = 'none';
+        } -->
+
+    <!-- 第三个作业 新浪下拉菜单-->
+    <!-- <div id='title'>微博</div>
+    <div id='block'>
+        <p>私信</p>
+        <p>评论</p>
+        <p>@我</p>
+    </div>
+    <script>
+        var title = document.getElementById('title');
+        var block = document.getElementById('block');
+        title.onmouseover = function () {
+            block.style.display = 'block';
+        }
+        title.onmouseleave = function () {
+            block.style.display = 'none';
+        } -->
+
+    <!-- 第四个作业 开关灯案例-->
+    <div>
+        <button>开关灯</button>
+    </div>
+    <script>
+        var button = document.querySelector('button');
+        var div = document.querySelector('div');
+        var flag = 0;
+        button.onclick = function () {
+            if (flag == 0) {
+                div.className = 'black';
+                flag = 1;
+            } else {
+                div.className = 'bai';
+                flag = 0;
+            }
+        }
+    </script>
+</body>
+
+</html>

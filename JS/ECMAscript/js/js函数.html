@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <SCript>
+        // 函数就是封装了一段可以被重复执行调用的代码块     目的：让大量代码重复使用
+        function getSum() {
+            var sum = 0;
+            for (var i = 1; i <= 100; i++) {
+                sum += i;
+            }
+            console.log(sum);
+        }
+        getSum();
+
+        // 使用函数分为两步：声明函数和调用函数
+        // 1.声明函数
+        function 函数名() {
+            // 函数体
+        }
+        // function 关键字全部小写
+        // 函数名一般是动词
+        // 函数不调用，自己不执行
+        // 2.调用函数   函数名()
+        function sayHi() {
+            console.log('Hi!');
+        }
+        sayHi();
+
+        // 利用函数的参数，实现函数重复不同的代码
+        // function 函数名(形参1, 形参2...)   //声明函数小括号里的是形参（形式上的参数）
+        // 函数名(实参1, 实参2...)   // 调用函数小括号里的是实参（实际上的参数）
+        function cook(aru) {   // 实参传递给形参    实参是传递，形参是接收
+            console.log(aru);
+        }
+        cook('土豆');
+
+        // 利用函数求任意两个数的和
+        function getSum(num1, num2) {
+            var sum = 0;
+            sum = num1 + num2;
+            console.log(sum);
+        }
+        getSum(1, 999);
+        getSum(1, 997);
+
+        // 利用函数求任意两个数之间的和
+        function getSum1(num3, num4) {
+            var sum1 = 0;
+            for (i = num3; num3 <= num4; i++) {
+                sum1 += i;
+            }
+            console.log(sum1);
+        }
+        // getSum1(1, 5);
+
+
+
+        function getSum(num1, num2) {
+            console.log(num1 + num2);
+        }
+        // 函数 形参实参个数匹配
+        // 1.函数形参实参个数一致，正常输出结果
+        getSum(1, 5);
+        // 2.函数实参多于形参，会取到形参的个数
+        getSum(1, 2, 300);
+        // 3.函数实参小于形参，   多余的形参定义为undefined，最终结果NaN
+        getSum(1);
+        // 形参可以看作不用声明的变量，num2是一个变量但没有接受值，结果是undefined
+
+
+        // 函数的返回值格式
+        function 函数名() {
+            return 需要返回的结果;
+        }
+        // 函数只是实现某种功能，最终的结果需要返回给函数的调用者 函数名()     通过return 实现的
+        // 函数只要遇到return 就会把后面的结果 返回给函数的调用者   函数名() = return后面的结果
+        function getResult() {
+            return 666;
+        }
+        console.log(getResult());
+
+
+        function getSum(num1, num2) {
+            return num1 + num2;
+        }
+        console.log(getSum(55, 55));
+
+        // 利用函数求任意两个数的最大值
+        function getMax(num1, num2) {
+            //     if (num1 > num2) {
+            //         return num1;
+            //     } else {
+            //         return num2;
+            //     }
+            return num1 > num2 ? num1 : num2;
+        }
+        console.log(getMax(88, 89));
+
+        // 利用函数求任意一个数组中的最大值
+        function getArrmax(arr) {
+            var max = arr[0];
+            for (var i = 1; i < arr.length; i++) {
+                max > arr[i] ? max : max = arr[i];
+            }
+            return max;
+        }
+        // 在函数开发中经常用一个变量来接收函数的返回结果
+        var ar = getArrmax([5, 2, 99, 10155, 67, 77]);
+        console.log(ar);
+
+
+        // 1.return 终止函数
+        function getSum(num1, num2) {
+            return num1 + num2;
+            alert('这个不会被执行');
+        }
+        console.log(getSum(1, 5));
+
+        // 2.return 只能返回一个值
+        function fn(num1, num2) {
+            return num1, num2;  // 返回的结果是最后一个值
+        }
+        console.log(fn(1, 2));
+
+        // 3.求任意两个数加减乘除的结果
+        function getResult(num6, num7) {
+            return [num6 + num7, num6 - num7, num6 * num7, num6 / num7];
+        }
+        var re = getResult(1, 2);
+        console.log(re);
+
+        // 4.函数有return则返回的是return后面的值，函数没有return则返回undefined
+        function fun() {
+            return 666;
+        } console.log(fun());  // 返回 666
+
+        function fun1() {
+
+        } console.log(fun1());  // 返回undefined
+
+
+
+        //  输入任意两个数进行任意算术运算，弹出运行后的结果
+        // return [num1 + num2, num1 - num2, num1 * num2, num1 / num2];
+        var num1 = prompt('请输入第一个数：') * 1;
+        var operator = prompt('请输入运算法则：');
+        var num2 = prompt('请输入第二个数：') * 1;
+        function getResult1(num1, operator, num2) {
+            switch (operator) {
+                case '+':
+                    return num1 + num2;
+                    break;
+                case '-':
+                    return num1 - num2;
+                    break;
+                case '*':
+                    return num1 * num2;
+                    break;
+                case '/':
+                    return num1 / num2;
+                    break;
+            }
+        }
+        var re = getResult1(num1, operator, num2);
+        alert(re);
+
+        // 输入任意两个数的最大值，
+        var num10 = prompt('请输入第一个数：');
+        var num20 = prompt('请输入第二个数：');
+        function getMax(num10, num20) {
+            return num10 > num20 ? num10 : num20;
+        }
+        var re = getMax(num10, num20);
+        alert('最大值是：' + re);
+
+        // 输入任意三个数，弹出最大值
+        var num1 = prompt('请输入第一个数：')
+        var num2 = prompt('请输入第二个数：')
+        var num3 = prompt('请输入第三个数：')
+        function getMax(arr) {
+            var max = arr[0];
+            for (i = 1; i < arr.length; i++) {
+                if (arr[i] > max) {
+                    max = arr[i];
+                }
+            }
+            return max;
+        }
+        var re = getMax([num1, num2, num3]);
+        alert('最大值为：' + re);
+
+        // 输入一个数，判断是否为素数
+        var num1 = prompt('请输入一个数');
+        function getNum(num1) {
+            for (i = 2; i < num1; i++) {
+                if (num1 % 2 == 0) {
+                    return num1 + '不是素数';
+                } else {
+                    return num1 + '是素数';
+                }
+            }
+        } alert(getNum(num1));
+    </SCript>
+</head>
+
+<body>
+
+</body>
+
+</html>

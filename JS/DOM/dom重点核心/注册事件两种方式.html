@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn1">传统方式</button>
+    <button id="btn2">事件侦听方式</button>
+    <script>
+        // 传统方式   后一个覆盖前一个
+        let btn1 = document.querySelector('#btn1');
+        btn1.onclick = function () {
+            alert(111);
+        }
+        btn1.onclick = function () {
+            alert(222);
+        }
+        // 事件侦听注册事件 addEventListener
+        // 里面的事件类型是字符串 必加引号 并且不带on
+        // 同一个元素 同一个事件 可以添加多个侦听器(事件处理程序)
+        let btn2 = document.querySelector('#btn2');
+        btn2.addEventListener('click', function () {
+            alert(22);
+        })
+        btn2.addEventListener('click', function () {
+            alert(333);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+</body>
+<script>
+    // 1. 获取所有按钮元素
+    let btns = document.getElementsByTagName('button');
+    // btns得到的是伪数组 里面的每一个元素是btns[i]
+    for (let i = 0; i < btns.length; i++) {
+        btns[i].onclick = function () {
+            // (1) 把所有的按钮背景颜色去掉
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].style.backgroundColor = '';
+            }
+            // (2) 让当前背景颜色显示为pink色
+            this.style.backgroundColor = 'pink';
+        }
+    }
+</script>
+
+</html>

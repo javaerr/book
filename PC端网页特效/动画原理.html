@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        span {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button>点击</button>
+    <div></div>
+    <span></span>
+    <script>
+        // 动画原理
+        // 1. 获得盒子当前的位置
+        // 2. 让盒子在当前的位置加上一个移动距离
+        // 3. 利用定时器不断重复这个操作
+        // 4. 加一个结束定时器的条件
+        // 5. 注意此元素需要添加定位，才能使用element.style.left
+        let div = document.querySelector('div');
+        // let timer = setInterval(function () {
+        //     if (div.offsetLeft >= 400) {
+        //         // 停止动画 本质是停止定时器
+        //         clearInterval(timer);
+        //     }
+        //     div.style.left = div.offsetLeft + 1 + 'px';
+        // }, 20)
+
+        // 简单动画封装函数
+        let btn = document.querySelector('button');
+        let span = document.querySelector('span');
+        function animate(obj, target) {  // obj 目标对象   target 目标位置
+            // 给不同元素指定不同的定时器 let obj = {}; obj.timer;
+            clearInterval(obj.timer);  // 清除以前的定时器 只保留当前一个定时器执行
+            obj.timer = setInterval(function () {
+                if (obj.offsetLeft >= target) {
+                    // 停止动画 本质是停止定时器
+                    clearInterval(timer);
+                }
+                obj.style.left = obj.offsetLeft + 1 + 'px';
+            }, 20)
+        }
+        animate(div, 500);
+        btn.addEventListener('click', function () {
+            animate(span, 200);
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea cols="30" rows="10"></textarea>
+    <button>发表</button>
+    <ul></ul>
+    <script>
+        let btn = document.querySelector('button');
+        let text = document.querySelector('textarea');
+        let ul = document.querySelector('ul');
+        // console.log(text.vlaue);
+        btn.onclick = function () {
+            if (text.value == '') {
+                alert('请输入内容');
+                return false;
+            } else {
+                // (1) 创建元素
+                let li = document.createElement('li');
+                li.innerHTML = text.value + '<a href="javascript:;">删除</a>'; // 把文本域的值给li  后面加一个a标签
+                // (2) 添加元素
+                ul.appendChild(li);
+                // ul.insertBefore(li, ul.children[0]);
+                // (3) 删除元素 删除的是当前链接的li 的父亲
+                let as = document.querySelectorAll('a');
+                for (let i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        ul.removeChild(this.parentNode); // 删除当前a标签的父元素li
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

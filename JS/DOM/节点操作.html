@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+            <li>内容4</li>
+            <li>内容5</li>
+        </ul>
+    </div>
+    <button>删除</button>
+</body>
+<script>
+    // 获取父节点  parentNode   得到的是离元素最近的父级节点
+    var lis = document.querySelector('li');
+    console.log(lis.parentNode);
+
+    // 获取子节点 childNodes   所有的子节点 包括元素节点 空格换行等
+    var ul = document.querySelector('ul');
+    console.log(ul.childNodes);
+    console.log(ul.childNodes[0].nodeType);  // 文本节点返回3
+    console.log(ul.childNodes[1].nodeType);  // 元素节点返回1
+    console.log(ul.children);  // 获取所有的元素子节点  实际开发中最常用的
+    console.log(ul.firstChild);  // 返回第一个子节点 不管是文本节点还是元素节点  ie9 才支持
+    console.log(ul.lastChild);  // 返回最后一个子节点 不管是文本节点还是元素节点
+    console.log(ul.firstElementChild);  // 返回第一个元素子节点
+    console.log(ul.lastElementChild);  // 返回最后一个元素子节点
+    console.log(ul.children[0]);  // 返回第一个元素子节点 实际开发中最常用  没有兼容性问题
+    console.log(ul.children[ul.children.length - 1]);  // 返回最后一个元素子节点 实际开发中最常用
+
+
+    // 创建元素节点 
+    var li = document.createElement('li');
+    // 添加节点  node.appendChild(child)  node 父级   child 子级   后面追加元素  类似数组的push
+    var ul = document.querySelector('ul');
+    ul.appendChild(li);
+    // node.insertBofore(child,指定元素)   添加子元素在指定元素之前
+    var lili = document.createElement('li');
+    ul.insertBefore(lili, ul.children[0]);
+
+    // 在页面添加一个元素 1.创建元素   2.添加元素
+
+    // 删除节点  node.removeChild()      删除父元素中的子节点  
+    var button = document.querySelector('button');
+    button.onclick = function () {
+        if (ul.children.length == 0) {
+            this.disabled = true;  // 按钮禁用
+        } else
+            ul.removeChild(ul.children[0]);  // 删除第一个子元素
+    }
+
+</script>
+
+</html>

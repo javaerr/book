@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img {
+            position: relative;
+            height: 398px;
+            width: 400px;
+            background-color: antiquewhite;
+            border: 1px solid #ccc;
+        }
+
+        .mask {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #fede4f;
+            opacity: .5;
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            left: 410px;
+            top: 0;
+            background-color: aqua;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .big img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img">
+        <div class="mask"></div>
+        <div class="big"><img src="../PC端网页特效/banner2.jpg" alt="" class="bigImg"></div>
+    </div>
+
+
+
+    <script>
+        let img = document.querySelector('.img')
+        let mask = document.querySelector('.mask');
+        let big = document.querySelector('.big');
+        // 1. 当鼠标经过img时 就显示和隐藏 mask 遮挡层 和 big 大盒子
+        img.addEventListener('mouseover', function () {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        })
+        img.addEventListener('mouseout', function () {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
+        // 2. 鼠标移动时 让黄色的盒子跟着鼠标走
+        img.addEventListener('mousemove', function (e) {
+            // 1. 先计算出鼠标在盒子内的坐标
+            let x = e.pageX - this.offsetLeft;
+            let y = e.pageY - this.offsetTop;
+            // 减去鼠标高度的一半 就是mask 最终的top 和 left  将鼠标悬停在黄色盒子中央
+            // mask 的距离
+            let maskX = x - mask.offsetWidth / 2;
+            let maskY = y - mask.offsetHeight / 2;
+            // 遮挡层的最大距离
+            let maskMax = img.offsetWidth - mask.offsetWidth;
+            // 如果x的坐标小于0就让它停在 0 的位置
+            if (maskX <= 0) {
+                maskX = 0;
+            } else if (maskX >= maskMax) {
+                maskX = maskMax;
+            }
+            if (maskY <= 0) {
+                maskY = 0;
+            } else if (maskY >= maskMax) {
+                maskY = maskMax;
+            }
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY + 'px';
+            // 3. 大图片的移动距离 = 遮挡层移动距离 * 大图片最大移动距离 / 遮挡层的最大移动距离
+            // 大图
+            let bigIMg = document.querySelector('.bigImg');
+            // 大图片最大移动距离
+            let bigMax = bigIMg.offsetWidth - big.offsetWidth;
+            // 大图片的移动距离 X Y
+            let bigX = maskX * bigMax / maskMax;
+            let bigY = maskY * bigMax / maskMax;
+            bigIMg.style.left = -bigX + 'px';
+            bigIMg.style.top = -bigY + 'px';
+        })
+
+
+    </script>
+</body>
+
+</html>

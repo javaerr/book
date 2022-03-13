@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // arguments 只有函数才有arguments对象，并且每个函数都内置了arguments
+        function fn() {
+            console.log(arguments);  // 里面存储了所有传递过来的实参 arguments = [1,2,3];
+            console.log(arguments.length);
+            console.log(arguments[2]);
+            // 可以按照数组方式遍历arguments
+            for (i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fn(1, 2, 3);
+        fn(1, 2, 3, 4, 5);
+        // arguments是伪数组 并不是真正意义上的数组
+        // 1. 具有数组的 length属性
+        // 2. 按照索引方式进行存储
+        // 3. 它没有真正数组一些方法 pop() push() 等等
+
+        // 利用函数求任意个数最大值
+        function getMax() {
+            var max = arguments[0];
+            for (i = 1; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(getMax(1, 5, 4, 86, 4, 2, 8));
+        console.log(getMax(1, 5, 4, 86, 4, 246, 8));
+        console.log(getMax(1, 5, 4, 86, 4, 25511, 8));
+
+        // 利用函数 翻转数组
+        function getFz(arr) {
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arr[i];
+            }
+            return newArr;
+        }
+        var arr1 = getFz([1, 5, 4, 3, 8, 4, 3]);
+        console.log(arr1);
+
+        // 利用函数封装方式，对数组排序 冒泡排序
+        function sort(arr3) {
+            for (var i = 0; i < arr3.length - 1; i++) {
+                for (var j = 0; j < arr3.length - i - 1; j++) {
+                    if (arr3[j] > arr3[j + 1]) {
+                        var temp = arr3[j];
+                        arr3[j] = arr3[j + 1];
+                        arr3[j + 1] = temp;
+                    }
+                }
+            }
+            return arr3;
+        }
+        var arr2 = sort([5, 6, 8, 24, 3, 7]);
+        console.log(arr2);
+
+
+        // 输入一个年份，判断是否是闰年（闰年：能被4整除并且不能被100整除，或能被四百整除）
+        // var old = prompt('请输入年份：');
+        function getYear(year) {
+            // 如果是闰年返回true，否则返回false
+            var flag = false;
+            if (year % 4 == 0 && year % 100 !== 0 || year % 400 == 0) {
+                flag = true;
+                // return old + '年是闰年';
+                // } else {
+                // return old + '不是闰年';
+            }
+            return flag;
+        }
+        // alert(getOld(old));
+        console.log(getYear(2000));
+        console.log(getYear(1999));
+
+
+        // 函数之间可以相互调用
+        function fn1() {
+            console.log(111);
+            fn2();
+            console.log('fn1');
+        }
+        function fn2() {
+            console.log(222);
+            console.log('fn2');
+        }
+        fn1();
+
+        // 输出2月份天数
+        function backDay() {
+            var year = prompt('请你输入年份：');
+            if (getYear(year)) {
+                alert('该年份是闰年，2月有29天');
+            } else {
+                alert('该年份是平年，2月有28天');
+            }
+        }
+        backDay();
+
+        // 函数中的两种声明方式
+        // 1. 利用函数关键字自定义函数（命名函数）
+        function fn() {
+
+        }
+        fn();
+        // 2. 函数表达式（匿名函数）
+        // var 变量名 = function() {};
+        var fun = function (aru) {
+            console.log('我是函数表达式');
+            console.log(aru);
+        }
+        fun('猪猪侠');
+        // (1) fun是变量名 不是函数名
+        // (2) 变量里存的是值，函数表达式里存的是函数
+        // (3) 函数表达式也可以进行传递参数  -
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

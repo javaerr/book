@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-spacing: 0;
+        }
+
+        thead td {
+            padding: 5px 20px;
+            text-align: center;
+        }
+
+        tbody td {
+            padding: 5px 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <table border="1">
+            <thead>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>商品</td>
+                    <td>价钱</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>iphone8</td>
+                    <td>8000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>ipad pro</td>
+                    <td>5000</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>ipad Air</td>
+                    <td>200</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>ipad Watch</td>
+                    <td>2000</td>
+                </tr>
+            <tbody>
+        </table>
+    </form>
+    <script>
+        // 事件源
+        var checkbox = document.querySelector('thead').querySelector('input');
+        // console.log(checkbox);  // 获取全选框
+        var radio = document.querySelector('tbody').querySelectorAll('input')
+        // console.log(radio);  // 获取单选框
+        // 绑定注册事件
+        checkbox.onclick = function () {
+            // this.checked;  // 得到当前全选框的状态   选中时true  否则时false
+            for (var i = 0; i < radio.length; i++) {
+                radio[i].checked = this.checked;
+            }
+        }
+        for (var i = 0; i < radio.length; i++) {
+            radio[i].onclick = function () { // 给单选框绑定点击事件
+                var flag = true; // flag 控制全选按钮是否被选中
+                for (var i = 0; i < radio.length; i++) { // 每次点击循环检查小按钮是否被选中
+                    if (!radio[i].checked) {
+                        flag = false;
+                        break;  // 只要有一个没选中就退出循环 提高效率
+                    }
+                }
+                checkbox.checked = flag;
+            }
+        }
+    </script>
+</body>
+
+</html>

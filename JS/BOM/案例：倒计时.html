@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px auto;
+            width: 180px;
+            height: 180px;
+        }
+
+        span {
+            display: inline-block;
+            width: 30px;
+            line-height: 30px;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour"></span>
+        <span class="minute"></span>
+        <span class="second"></span>
+    </div>
+    <script>
+        // 先算出要倒计时的时间
+        // 把时间赋给3个黑盒子
+        // 运用定时器实现实时刷新效果
+        let hour = document.querySelector('.hour');
+        let minute = document.querySelector('.minute');
+        let second = document.querySelector('.second');
+        let inputTime = +new Date('2022-3-7 12:00:00'); // 输入的时间
+        setInterval(countDown, 1000); // 开启定时器
+        countDown(); // 先调用一个 防止第一次刷新有空白
+        function countDown() {
+            let nowTime = +new Date(); // 当前时间
+            // let inputTime = +new Date('2022-3-7 12:00:00'); // 输入的时间
+            let timer = (inputTime - nowTime) / 1000; // 剩余时间的毫秒数
+            let h = parseInt(timer / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h; // 输出的小时数
+            hour.innerHTML = h; // 把输出的小时数赋值给第一个span
+            let m = parseInt(timer / 60 % 60);
+            m = m < 10 ? '0' + m : m; // 输出的分钟数
+            minute.innerHTML = m; // 把输出的分钟数赋值给第二个span
+            let s = parseInt(timer % 60);
+            s = s < 10 ? '0' + s : s; // 输出的秒数
+            second.innerHTML = s; // 把输出的秒数赋值给第三个span
+
+        }
+
+    </script>
+</body>
+
+</html>

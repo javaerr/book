@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .search {
+            position: relative;
+            margin: 0 auto;
+            width: 200px;
+            height: 70px;
+        }
+
+        .con {
+            display: none;
+            width: 200px;
+            height: 35px;
+            font-size: 24px;
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, .3);
+
+        }
+
+        .con::before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 35px;
+            left: 10px;
+            border: 8px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #fff transparent transparent;
+        }
+
+        #jd {
+            position: absolute;
+            bottom: 0;
+            width: 192px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="search">
+        <div class="con"></div>
+        <input type="text" placeholder="请输入快递单号" id="jd">
+    </div>
+    <script>
+        let jd = document.querySelector('#jd');
+        let con = document.querySelector('.con');
+        jd.addEventListener('keyup', function () {
+            if (this.value == '') {
+                con.style.display = 'none';  // 没有内容 con 隐藏
+
+            } else {
+                con.style.display = 'block';
+                con.innerHTML = this.value;   // 表单的值赋给con这个盒子
+            }
+        })
+        // 当失去焦点时，隐藏con 这个盒子
+        jd.addEventListener('blur', function () {
+            con.style.display = 'none';
+        })
+        // 获取焦点且文本不为空 显示盒子
+        jd.addEventListener('focus', function () {
+            if (this.value !== '') {
+                con.style.display = 'block';
+            }
+        })
+
+    </script>
+</body>
+
+</html>

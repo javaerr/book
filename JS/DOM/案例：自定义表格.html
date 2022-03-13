@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        // <现准备好学生数据 用数组对象生成
+        let datas = [{
+            name: '王二',
+            subject: 'javascript',
+            score: 100
+        }, {
+            name: '张三',
+            subject: 'javascript',
+            score: 99
+        }, {
+            name: '李四',
+            subject: 'javascript',
+            score: 98
+        }, {
+            name: '麻子',
+            subject: 'javascript',
+            score: 0
+        }];
+        // 创建行 放入tbody
+        const tbody = document.querySelector('tbody');  // 选中tbody
+        for (let i = 0; i < datas.length; i++) {
+            let tr = document.createElement('tr'); // 创建tr
+            // console.log(tr.nodeType);
+            tbody.appendChild(tr);  // 不要加引号
+            // 创建列 放入行里
+            for (let k in datas[i]) {  // 遍历datas对象
+                let td = document.createElement('td');
+                td.innerHTML = datas[i][k];  // 将每个对象的属性值放入td
+                tr.appendChild(td);
+            }
+            // 添加删除操作
+            let td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+            let as = document.querySelectorAll('a'); // 选中所有a 标签
+            for (let i = 0; i < as.length; i++) {
+                as[i].onclick = function () {
+                    // 点击删除操作 删除a 标签所在的行
+                    tbody.removeChild(this.parentNode.parentNode);
+                }
+            }
+        }
+
+
+        //自定义删除
+    </script>
+</body>
+
+</html>

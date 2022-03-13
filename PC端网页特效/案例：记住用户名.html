@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username"><input type="checkbox" id="remember">
+    <script>
+        let username = document.querySelector('#username');
+        let remember = document.querySelector('#remember');
+        if (localStorage.getItem('username')) {
+            username.value = localStorage.getItem('username'); // 如果有username 就把值给文本框
+            remember.checked = true; // 并且勾上
+        }
+        remember.addEventListener('change', function () {
+            if (this.checked) { // 判断有没有勾上
+                localStorage.setItem('username', username.value) // 勾上了就记住用户名
+            } else {
+                localStorage.removeItem('username'); // 没勾上 就删除已存在的用户名
+            }
+        })
+    </script>
+</body>
+
+</html>

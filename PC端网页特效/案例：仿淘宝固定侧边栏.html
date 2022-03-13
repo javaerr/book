@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .w {
+            width: 80%;
+            margin: 0 auto;
+
+        }
+
+        .header {
+            background-color: aqua;
+            height: 200px;
+        }
+
+        .banner {
+            background-color: aquamarine;
+            height: 700px;
+        }
+
+        .main {
+            background-color: rgb(228, 228, 25);
+            height: 1000px;
+        }
+
+        .slider_bar {
+            position: absolute;
+            top: 300px;
+            left: 90%;
+            background-color: blue;
+            width: 50px;
+            height: 200px;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider_bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体部分</div>
+    <script>
+        let slider_bar = document.querySelector('.slider_bar');
+        let banner = document.querySelector('.banner');
+        let header = document.querySelector('.header');
+        let main = document.querySelector('.main');
+        let goBack = document.querySelector('span');
+        // 被卷曲头部的大小 一定要写到滚动的外面
+        let bannerTOp = banner.offsetTop;
+        // 侧边栏固定定位之后应该变化的数值
+        let slider_barTop = slider_bar.offsetTop - banner.offsetTop;
+        let mainTop = main.offsetTop;
+        document.addEventListener('scroll', function () {
+            let y = window.pageYOffset; // 页面被卷去的头部
+            console.log(y);
+            if (y >= bannerTOp) {
+                slider_bar.style.position = 'fixed'; // 改成固定定位
+                slider_bar.style.top = slider_barTop + 'px';
+            } else {
+                slider_bar.style.position = 'absolute';
+                slider_bar.style.top = '300px';
+            }
+            if (y >= mainTop) {
+                goBack.style.display = 'block';
+            } else {
+                goBack.style.display = 'none';
+            }
+            // 点击返回顶部
+            goBack.addEventListener('click', function () {
+                // document.documentElement.scrollTop = 0;
+                // 里面的x 和 y 不跟数字
+                // window.scroll(0, 0);
+                animate(window, 0); // 窗口滚动 所以对象是window
+            })
+        })
+        function animate(obj, target, callback) {  // obj 目标对象   target 目标位置
+            // 给不同元素指定不同的定时器 let obj = {}; obj.timer;
+            clearInterval(obj.timer);  // 清除以前的定时器 只保留当前一个定时器执行
+            obj.timer = setInterval(function () {
+                // 步长值写在定时器里面
+                let step = (target - window.pageYOffset) / 10; // 步长值
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (window.pageYOffset == target) {
+                    // 停止动画 本质是停止定时器
+                    clearInterval(obj.timer);
+                    // 回调函数写在定时器结束里面
+                    // if (callback) {
+                    //     callback();
+                    // }
+                    callback && callback();
+                }
+                // 每次加1 改成 一个慢慢变小的值
+                window.scroll(0, window.pageYOffset + step);
+            }, 15)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        let params = location.search.substring(1); // 截取字符串
+        let arr = params.split('='); // 分割字符 将字符串转换成数组
+        let div = document.querySelector('div');
+        div.innerHTML = arr[1] + '同学，欢迎您！'
+
+    </script>
+</body>
+
+</html>

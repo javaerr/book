@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 常用的键盘事件
+        // 1. keyup 按键弹起时触发
+        // document.onkeyup = function () {
+        //     console.log('我弹起了');
+        // }
+        document.addEventListener('keyup', function () {
+            console.log('松开了keyup');
+        })
+        // 2. keydown 按键按下时触发 能识别功能键
+        document.addEventListener('keydown', function () {
+            console.log('按下了keydown');
+        })
+        // 3. ketpress 按键按下时触发 不能识别功能键 如ctrl shift 左右箭头
+        document.addEventListener('keypress', function () {
+            console.log('按下了keypress');
+        })
+        document.addEventListener('keydown', function (e) {
+            console.log(e.key);  // 返回对应的按键名
+        })
+        document.addEventListener('keydown', function (e) {
+            // console.log('大小写不同' + e.keyCode);  // 返回对应的ASCLL值 已被弃用
+            if (e.keyCode === 65) {
+                alert('你按下了a键');
+            } else {
+                alert('你没有按下a键');
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px auto;
+            width: 350px;
+        }
+
+
+        p {
+            display: inline-block;
+
+        }
+
+        .wrong {
+            color: red;
+        }
+
+        .right {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="password">
+        <p class="p">请输入6-16位密码</p>
+    </div>
+    <script>
+        // 获取事件源
+        var input = document.querySelector('input');
+        var p = document.querySelector('.p')
+        input.onblur = function () {  // 绑定失去焦点事件
+            if (this.value.length < 6 || this.value.length > 16) {  // 判断条件
+                p.className = 'wrong';
+                p.innerHTML = ('输入位数不对')
+            } else {
+                p.className = 'right';
+                p.innerHTML = '输入合法';
+            }
+        }
+    </script>
+</body>
+
+</html>
